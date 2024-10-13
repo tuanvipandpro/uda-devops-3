@@ -21,9 +21,9 @@ spec:
           value: postgres
         - name: POSTGRES_PASSWORD
           valueFrom:
-          secretKeyRef:
-            name: env-secret
-            key: POSTGRES_PASSWORD
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_PASSWORD
         ports:
         - containerPort: 5432
         volumeMounts:
