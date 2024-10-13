@@ -5,6 +5,7 @@ env:
     AWS_DEFAULT_REGION: us-east-1
     AWS_ACCOUNT_ID: 424564021887
     IMAGE_NAME: test-coworking-analytics
+    REPOSITORY_NAME: tuanlm15/udacity-devops-project3
     CODEBUILD_BUILD_NUMBER: 1
 phases:
   pre_build:
@@ -17,12 +18,12 @@ phases:
       - echo Building the Docker image...
       - cd analytics
       - docker build -t $IMAGE_NAME .
-      - docker tag $IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:$CODEBUILD_BUILD_NUMBER
+      - docker tag $IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REPOSITORY_NAME:$CODEBUILD_BUILD_NUMBER
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:$CODEBUILD_BUILD_NUMBER
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REPOSITORY_NAME:$CODEBUILD_BUILD_NUMBER
 
 artifacts:
   files:
