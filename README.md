@@ -22,3 +22,5 @@ Run ./db/*.sql
     curl http://a0bf3d56db54e49808290d2745a9ee2e-85792453.us-east-1.elb.amazonaws.com:5153/api/reports/daily_usage
 
     curl http://a0bf3d56db54e49808290d2745a9ee2e-85792453.us-east-1.elb.amazonaws.com:5153/api/reports/user_visits
+
+#Test commit
